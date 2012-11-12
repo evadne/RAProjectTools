@@ -1,0 +1,9 @@
+#!/bin/bash --
+
+PROJECT_ROOT=$(git rev-parse --show-toplevel)
+cd $PROJECT_ROOT
+
+TOOLS_PATH="`pwd -P`/`dirname $0`"
+BUNDLE_GEMFILE="$TOOLS_PATH/Gemfile" bundle exec "$TOOLS_PATH/sync-resources.rb"
+
+cd -

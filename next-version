@@ -1,0 +1,15 @@
+#!/bin/bash --
+
+PROJECT_ROOT=$(git rev-parse --show-toplevel)
+cd $PROJECT_ROOT
+
+CURRENT_VERSION=`agvtool vers -terse`
+NEXT_VERSION=`expr $CURRENT_VERSION + 1`
+MARKETING_VERSION=`agvtool mvers -terse1`
+
+git flow release start $NEXT_VERSION
+agvtool next-version
+git commit -a -m "Version $MARKETING_VERSION ($NEXT_VERSION)"
+git flow release finish $NEXT_VERSION
+
+cd -
