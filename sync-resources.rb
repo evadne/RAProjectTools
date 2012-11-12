@@ -39,7 +39,7 @@ resources_group.files.each { |file|
     removed_files << file
   end
   
-  resource_file_paths.delete file_path
+  added_paths.delete file_path
 
 }
 
