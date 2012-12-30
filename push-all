@@ -1,0 +1,5 @@
+#!/bin/bash --
+
+git push origin --all --prune
+git push origin --tags
+git push --recurse-submodules=on-demand
